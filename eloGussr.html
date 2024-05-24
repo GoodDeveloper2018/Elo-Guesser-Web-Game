@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <style>
+      /* Body styles */
+      body {
+        background-color: #F0F0F0;
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+      
+      /* Heading styles */
+      h1 {
+        margin-top: 20px;
+        margin-bottom: 0;
+        text-align: center;
+        font-size: 36px;
+        font-weight: bold;
+        color: #333333;
+        text-decoration: underline;
+      }
+      
+      /* Site name styles */
+      #site-name {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #333333;
+      }
+      
+      /* Game information styles */
+      #game-info {
+        margin: 20px auto;
+        max-width: 600px;
+        text-align: center;
+        font-size: 20px;
+        color: #666666;
+      }
+      
+      /* Feedback styles */
+      #feedback {
+        margin: 20px auto;
+        max-width: 600px;
+        text-align: center;
+        font-size: 20px;
+        color: #666666;
+      }
+      
+      /* Time control and new game button styles */
+      label[for="time-control"] {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333333;
+      }
+      
+      #time-control {
+        font-size: 16px;
+        margin-left: 10px;
+        color: #666666;
+      }
+      
+      #new-game {
+        background-color: #333333;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      #new-game:hover {
+        background-color: #666666;
+      }
+      
+      /* Chessboard styles */
+      #board-container {
+        margin: 20px auto;
+        max-width: 600px;
+        text-align: center;
+      }
+      
+      /* Guess and submit button styles */
+      label[for="guess"] {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333333;
+      }
+      
+      #guess {
+        font-size: 16px;
+        color: #666666;
+        padding: 10px;
+        margin-left: 10px;
+        border: 1px solid #CCCCCC;
+        border-radius: 5px;
+      }
+      
+      #submit-guess {
+        background-color: #333333;
+        color: #FFFFFF;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      
+      #submit-guess:disabled {
+        background-color: #CCCCCC;
+        cursor: not-allowed;
+      }
+      
+      #submit-guess:hover:not(:disabled) {
+        background-color: #666666;
+      }
+      
+      /* Error message styles */
+      .error {
+        color: red;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      
+    </style>
+    
+    <title>Hikaru's Guess the Elo</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h1 align = "center">Guess the Hikaru Game Chess Elo</h1>
+    <!-- Game information section -->
+    <div id="game-info"></div>
+    
+    <!-- Feedback section -->
+    <div id="feedback"></div>
+    
+    <!-- Time control and new game button section -->
+    <div>
+      <label for="time-control">Select Time Control:</label>
+      <select id="time-control">
+        <option value="rapid">Rapid</option>
+        <option value="blitz">Blitz</option>
+        <option value="bullet">Bullet</option>
+      </select>
+      <button id="new-game">New Game</button>
+    </div>
+    
+    <!-- Chessboard section -->
+    <div id="board-container"></div>
+    
+    <!-- Guess and submit button section -->
+    <div>
+      <label for="guess">Guess the Elo:</label>
+      <input type="text" id="guess" />
+      <button id="submit-guess" disabled>Submit Guess</button>
+    </div>
+    
+    <!-- JavaScript files -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/@chrisoakman/chess.js@1.0.0/dist/chess.min.js"></script>
+    <script src="eloGussr.js"></script>
+  </body>
+</html>
